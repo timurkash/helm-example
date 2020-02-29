@@ -1,13 +1,14 @@
 apiVersion: v1
 entries:
-  my-app:
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: "2019-07-31T14:48:28.058774+03:00"
+  mychart:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2020-02-29T08:16:32.2942698+03:00"
     description: A Helm chart for Kubernetes
-    digest: 20fb62fcecce5ca510376409d4eae5da9dd956192298022f7fb278c76588f306
-    name: my-app
+    digest: 8ce51777ca484423a6f01f76775877c4f4ab450111143ac674430db2c1de0854
+    name: mychart
+    type: application
     urls:
-    - https://timurkash.github.io/helm-example/my-app-0.1.0.tgz
+    - https://timurkash.github.io/helm-example/mychart-0.1.0.tgz
     version: 0.1.0
-generated: "2019-07-31T14:48:28.0577743+03:00"
+generated: "2020-02-29T08:16:32.2922704+03:00"
