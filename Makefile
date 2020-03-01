@@ -1,6 +1,7 @@
 
 BRANCH:=gh-pages
 URL:=https://timurkash.github.io/
+ROUTER:=helm-example
 NAME:=fp
 
 pull:
@@ -27,7 +28,7 @@ list:
 	helm search repo --regexp $(NAME)/*
 
 add:
-	helm repo add $(NAME) $(URL)
+	helm repo add $(NAME) $(URL)$(ROUTER)
 
 del:
 	helm repo remove $(NAME)
