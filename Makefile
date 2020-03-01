@@ -1,9 +1,7 @@
 
 BRANCH:=gh-pages
-URL:=https://timurkash.github.io/helm-example
+URL:=https://timurkash.github.io/
 NAME:=fp
-#CHART:=mychart
-#ARGS := $(filter-out $(CHART),$(MAKECMDGOALS))
 
 pull:
 	git pull origin $(BRANCH)
@@ -23,7 +21,7 @@ index:
 pack:
 	@echo Packaging $(CHART)
 	helm package $(CHART)
-#	make index
+	make index
 
 list:
 	helm search repo --regexp $(NAME)/*
