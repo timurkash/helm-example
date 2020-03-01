@@ -2,7 +2,7 @@
 BRANCH:=gh-pages
 URL:=https://timurkash.github.io/
 ROUTER:=helm-example
-NAME:=fp
+NAME:=find-psy
 
 pull:
 	git pull origin $(BRANCH)
