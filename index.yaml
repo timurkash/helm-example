@@ -3,7 +3,7 @@ entries:
   mychart:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-02-29T12:09:24.8470638+03:00"
+    created: "2020-03-01T09:20:21.4238421+03:00"
     description: A Helm chart for Kubernetes
     digest: 8ce51777ca484423a6f01f76775877c4f4ab450111143ac674430db2c1de0854
     name: mychart
@@ -14,7 +14,7 @@ entries:
   mychart2:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-02-29T12:09:24.8500634+03:00"
+    created: "2020-03-01T09:20:21.4258409+03:00"
     description: A Helm chart for Kubernetes
     digest: ea5934dc920c9ed60e20a95f880971b2f5ab1da6802a799eafdf203c5f1bf3c9
     name: mychart2
@@ -25,7 +25,7 @@ entries:
   mychart3:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-02-29T12:09:24.8510628+03:00"
+    created: "2020-03-01T09:20:21.4268422+03:00"
     description: A Helm chart for Kubernetes
     digest: 55951813fd75fbc19ae7b42cb05dc9d7fe08fdd7c49ca517aa58648219b6198e
     name: mychart3
@@ -33,4 +33,4 @@ entries:
     urls:
     - https://timurkash.github.io/helm-example/helm-example/mychart3-0.1.0.tgz
     version: 0.1.0
-generated: "2020-02-29T12:09:24.8450653+03:00"
+generated: "2020-03-01T09:20:21.4228429+03:00"
