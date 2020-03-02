@@ -29,6 +29,7 @@ list:
 
 add:
 	helm repo add $(NAME) $(URL)$(ROUTER)
+	helm repo update
 
 del:
 	helm repo remove $(NAME)
