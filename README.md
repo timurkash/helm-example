@@ -42,3 +42,14 @@ find-psy/sfpg   	0.1.0        	1.16.0     	A Helm chart for Kubernetes
 ```
 
 with chart `sfpg`
+
+In order to get yamls
+
+```cmd
+helm template accounts find-psy/sfpg -f=values.yaml
+```
+where 
+
+- `accounts` is `.Release.Name`, 
+- `find-psy/sfpg` is chart,
+- `values.yaml` is file with values that override `sfpg/values.yaml` is chart
