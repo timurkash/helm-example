@@ -3,7 +3,7 @@ entries:
   mychart:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-03-02T17:13:33.3425609+03:00"
+    created: "2020-03-02T17:27:12.6253494+03:00"
     description: A Helm chart for Kubernetes
     digest: ef619d30e53783ee62aed8616e7680055394b935a50515cabddb424c8b66b265
     name: mychart
@@ -11,4 +11,15 @@ entries:
     urls:
     - https://timurkash.github.io/helm-example/mychart-0.1.0.tgz
     version: 0.1.0
-generated: "2020-03-02T17:13:33.33756+03:00"
+  sfpg:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2020-03-02T17:27:12.6253494+03:00"
+    description: A Helm chart for Kubernetes
+    digest: cb1be94c46881d2670e136bfcd56e447a4dd4926c0b762f8537d9ff73f6df442
+    name: sfpg
+    type: application
+    urls:
+    - https://timurkash.github.io/helm-example/sfpg-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-03-02T17:27:12.6243765+03:00"
