@@ -41,6 +41,12 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: POSTGRES_ARGS
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.image.secret }}
+                  key: POSTGRES_ARGS
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

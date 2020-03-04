@@ -62,3 +62,8 @@ To unistall specified chart in namespace
 ```bash
 helm uninstall events -n=staging
 ```
+
+To show index.yaml
+```bash
+make start
+```

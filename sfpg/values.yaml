@@ -8,8 +8,9 @@ image:
   repository: nginx
   version: 0.1.0
   pullPolicy: Always
+  secret: secret
 
-imagePullSecrets: []
+imagePullSecrets: [{"name": "imagePullSecret"}]
 nameOverride: ""
 fullnameOverride: ""
 

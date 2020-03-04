@@ -40,3 +40,6 @@ ls:
 
 temp:
 	helm template $(CHART) > temp.yaml
+
+start:
+	start "$(URL)$(ROUTER)/index.yaml"
