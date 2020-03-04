@@ -3,6 +3,7 @@ BRANCH:=gh-pages
 URL:=https://timurkash.github.io/
 ROUTER:=helm-example
 NAME:=find-psy
+CHART:=sfpg
 
 pull:
 	git pull origin $(BRANCH)
@@ -36,3 +37,6 @@ del:
 
 ls:
 	helm ls -A
+
+temp:
+	helm template $(CHART) > temp.yaml
