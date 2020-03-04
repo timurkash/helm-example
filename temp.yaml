@@ -25,7 +25,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 80
+    - port: 8080
       targetPort: http
       protocol: TCP
       name: http
@@ -69,16 +69,20 @@ spec:
           imagePullPolicy: Always
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 8080
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: /healthz
               port: http
+            initialDelaySeconds: 1
+            timeoutSeconds: 5
           readinessProbe:
             httpGet:
-              path: /
+              path: /readyz
               port: http
+            initialDelaySeconds: 10
+            timeoutSeconds: 10
           resources:
             {}
           env:
@@ -106,5 +110,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['RELEASE-NAME-sfpg:80']
+      args: ['RELEASE-NAME-sfpg:8080']
   restartPolicy: Never
