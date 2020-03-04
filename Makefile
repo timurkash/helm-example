@@ -33,3 +33,6 @@ add:
 
 del:
 	helm repo remove $(NAME)
+
+ls:
+	helm ls -A

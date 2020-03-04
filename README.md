@@ -49,7 +49,16 @@ In order to get yamls
 helm template accounts find-psy/sfpg -f=values.yaml
 ```
 where 
-
 - `accounts` is `.Release.Name`, 
 - `find-psy/sfpg` is chart,
 - `values.yaml` is file with values that override `sfpg/values.yaml` is chart
+
+To show all installed charts in kubernetes cluster
+```bash
+make ls
+```
+
+To unistall specified chart in namespace 
+```bash
+helm uninstall events -n=staging
+```
