@@ -35,13 +35,13 @@ spec:
           livenessProbe:
             httpGet:
               path: /healthz
-              port: http
+              port: {{ .Values.service.port }}
             initialDelaySeconds: 1
             timeoutSeconds: 5
           readinessProbe:
             httpGet:
               path: /readyz
-              port: http
+              port: {{ .Values.service.port }}
             initialDelaySeconds: 10
             timeoutSeconds: 10
           resources:
