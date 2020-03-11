@@ -3,7 +3,7 @@ entries:
   mychart:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-03-10T13:35:38.9362712+03:00"
+    created: "2020-03-11T14:05:50.1793501+03:00"
     description: A Helm chart for Kubernetes
     digest: ef619d30e53783ee62aed8616e7680055394b935a50515cabddb424c8b66b265
     name: mychart
@@ -14,12 +14,12 @@ entries:
   sfpg:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-03-10T13:35:38.9362712+03:00"
+    created: "2020-03-11T14:05:50.1793501+03:00"
     description: A Helm chart statesFull with Postgres
-    digest: 67053c3ce4bef66e7f37783b85c772a8274d3517980c2813c534712116a92f60
+    digest: 390b8018d3b2f052d5ced45895cb6ae4cc2166e4d09c9ddcf1b47045d088537e
     name: sfpg
     type: application
     urls:
     - https://timurkash.github.io/helm-example/sfpg-0.1.0.tgz
     version: 0.1.0
-generated: "2020-03-10T13:35:38.9352789+03:00"
+generated: "2020-03-11T14:05:50.1783503+03:00"

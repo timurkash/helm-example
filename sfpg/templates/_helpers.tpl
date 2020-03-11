@@ -47,10 +47,10 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 Selector labels
 */}}
 {{- define "sfpg.selectorLabels" -}}
+app: {{ .Values.app }}
+version: {{ .Values.app_version }}
 app.kubernetes.io/name: {{ include "sfpg.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
-app: {{ .Values.app }}
-version: {{ .Values.image.version }}
 {{- end -}}
 
 {{/*
