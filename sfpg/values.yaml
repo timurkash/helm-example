@@ -4,6 +4,7 @@
 
 app: application
 app_version: v1
+name: name
 
 replicaCount: 1
 

@@ -39,7 +39,7 @@ ls:
 	helm ls -A
 
 temp:
-	helm template $(CHART) > temp.yaml
+	helm template release-name $(CHART) > temp.yaml
 
 start:
 	start "$(URL)$(ROUTER)/index.yaml"

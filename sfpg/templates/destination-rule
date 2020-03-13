@@ -1,0 +1,10 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  host: {{ .Values.name }}
+  subsets:
+    - name: {{ .Values.app_version }}
+      labels:
+        version: {{ .Values.app_version }}
