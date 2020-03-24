@@ -67,3 +67,11 @@ To show index.yaml
 ```bash
 make start
 ```
+
+To delete the extra chart
+```bash
+rm -rf mychart mychart mychart-*.tgz
+make pack
+```
+
+To switch to another chart you have to change `CHART` parameter in `Makefile`

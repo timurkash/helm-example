@@ -1,25 +1,25 @@
 apiVersion: v1
 entries:
-  mychart:
+  node:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-03-13T14:45:29.6892372+03:00"
-    description: A Helm chart for Kubernetes
-    digest: ef619d30e53783ee62aed8616e7680055394b935a50515cabddb424c8b66b265
-    name: mychart
+    created: "2020-03-24T16:06:28.8361241+03:00"
+    description: A Helm chart for web-application on Node (SSR)
+    digest: 18b0a1189d4deabaac5403f10ce0ab9a6f9bccb48973868caec1120aed40e466
+    name: node
     type: application
     urls:
-    - https://timurkash.github.io/helm-example/mychart-0.1.0.tgz
+    - https://timurkash.github.io/helm-example/node-0.1.0.tgz
     version: 0.1.0
   sfpg:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-03-13T14:45:29.690266+03:00"
+    created: "2020-03-24T16:06:28.8371262+03:00"
     description: A Helm chart statesFull with Postgres
-    digest: 25705507ed3d4157f24297ab71c1f730819d244f7a714466b7919ba259cc78b5
+    digest: 92d3eaa354683fc1e7420263ebd477b92c260a39a828e1c18204b574ccddb22d
     name: sfpg
     type: application
     urls:
     - https://timurkash.github.io/helm-example/sfpg-0.1.0.tgz
     version: 0.1.0
-generated: "2020-03-13T14:45:29.6882356+03:00"
+generated: "2020-03-24T16:06:28.8361241+03:00"

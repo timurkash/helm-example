@@ -5,6 +5,6 @@ metadata:
 spec:
   host: {{ .Values.name }}
   subsets:
-    - name: {{ .Values.app_version }}
+    - name: {{ .Values.appVersion }}
       labels:
-        version: {{ .Values.app_version }}
+        version: {{ .Values.appVersion }}

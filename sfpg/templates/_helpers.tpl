@@ -48,7 +48,7 @@ Selector labels
 */}}
 {{- define "sfpg.selectorLabels" -}}
 app: {{ .Values.app }}
-version: {{ .Values.app_version }}
+version: {{ .Values.appVersion }}
 app.kubernetes.io/name: {{ include "sfpg.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}

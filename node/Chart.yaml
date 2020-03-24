@@ -1,7 +1,6 @@
 apiVersion: v2
-name: mychart
-description: A Helm chart for Kubernetes
-metadata:
+name: node
+description: A Helm chart for web-application on Node (SSR)
 
 # A chart can be either an 'application' or a 'library' chart.
 #
