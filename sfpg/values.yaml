@@ -20,8 +20,10 @@ nameOverride: ""
 fullnameOverride: ""
 
 service:
-  type: ClusterIP
-  port: 8080
+  type: LoadBalancer
+  httpPort: 3000
+  externalPort: 80
+  nodePort: 31198
 
 serviceAccount:
   # Annotations to add to the service account
