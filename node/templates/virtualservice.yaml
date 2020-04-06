@@ -6,7 +6,7 @@ spec:
   hosts:
     - "*"
   gateways:
-    - {{ .Release.Name }}-gateway
+    - {{ include "node.gateway" . }}
   http:
     - match:
         - uri:
@@ -15,7 +15,7 @@ spec:
               prefix: /_nuxt
       route:
         - destination:
-            host: {{ .Values.name }}
+            host: {{ .Release.Name }}
             port:
               number: {{ .Values.service.port }}
       corsPolicy:
