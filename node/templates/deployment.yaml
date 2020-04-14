@@ -29,16 +29,20 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.httpPort }}
+              containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
             httpGet:
               path: /
-              port: http
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: 1
+            timeoutSeconds: 5
           readinessProbe:
             httpGet:
               path: /
-              port: http
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: 10
+            timeoutSeconds: 10
           resources:
       {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

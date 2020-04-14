@@ -1,13 +1,13 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: {{ .Release.Name }}-gateway
+  name: {{ include "sfpg.gateway" . }}
 spec:
   selector:
     istio: ingressgateway # use istio default controller
   servers:
     - port:
-        number: {{ .Values.service.port }}
+        number: {{ .Values.service.httpPort }}
         name: http
         protocol: HTTP
       hosts:

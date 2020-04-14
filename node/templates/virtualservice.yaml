@@ -12,7 +12,7 @@ spec:
         - uri:
             exact: /
         - uri:
-              prefix: /_nuxt
+              prefix: /_nuxt/
       route:
         - destination:
             host: {{ .Release.Name }}

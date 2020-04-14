@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "sfpg.fullname" . }}
+  name: {{ include "sfpg.releaseNameVersion" . }}
   labels:
     {{- include "sfpg.labels" . | nindent 4 }}
 spec:
@@ -30,7 +30,6 @@ spec:
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
-              hostPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
             httpGet:

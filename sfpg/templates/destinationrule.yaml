@@ -3,8 +3,8 @@ kind: DestinationRule
 metadata:
   name: {{ .Release.Name }}
 spec:
-  host: {{ .Values.name }}
+  host: {{ .Release.Name }}
   subsets:
-    - name: {{ .Values.appVersion }}
+    - name: {{ .Values.version }}
       labels:
-        version: {{ .Values.appVersion }}
+        version: {{ .Values.version }}
