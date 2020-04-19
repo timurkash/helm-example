@@ -23,6 +23,11 @@ service:
   port: 3000
   extPort: 8081
 
+gateway:
+  enabled: true
+virtualService:
+  enabled: false
+
 serviceAccount:
   # Annotations to add to the service account
   annotations: {}
