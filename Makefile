@@ -1,7 +1,7 @@
 
 BRANCH:=gh-pages
 URL:=https://timurkash.github.io/
-	ROUTER:=helm-example
+ROUTER:=helm-example
 NAME:=find-psy
 CHART:=node
 

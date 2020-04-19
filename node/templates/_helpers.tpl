@@ -53,7 +53,7 @@ Selector labels
 {{- define "node.selectorLabels" -}}
 app: {{ .Release.Name }}
 version: {{ .Values.version }}
-app.kubernetes.io/name: {{ include "node.name" . }}
+app.kubernetes.io/name: {{ .Release.Name }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
 
