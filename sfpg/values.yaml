@@ -19,10 +19,9 @@ nameOverride: ""
 fullnameOverride: ""
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 3000
-  httpPort: 8080
-  nodePort: 31198
+  extPort: 8081
 
 serviceAccount:
   # Annotations to add to the service account
