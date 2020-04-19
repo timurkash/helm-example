@@ -24,7 +24,7 @@ service:
   extPort: 8081
 
 gateway:
-  enabled: true
+  enabled: false
 virtualService:
   enabled: false
 
