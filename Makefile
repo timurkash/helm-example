@@ -13,6 +13,9 @@ next:
 	git commit -m "Next"
 	git push -u origin $(BRANCH)
 
+push:
+	git push -u origin $(BRANCH)
+
 update:
 	helm repo update
 
