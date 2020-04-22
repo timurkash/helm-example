@@ -11,9 +11,9 @@ spec:
   http:
     - match:
         - uri:
-            exact: /
-        - uri:
-              prefix: /_nuxt/
+            prefix: /
+#        - uri:
+#              prefix: /_nuxt
       route:
         - destination:
             host: {{ .Release.Name }}

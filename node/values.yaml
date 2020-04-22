@@ -12,6 +12,12 @@ image:
   tag: 0.1.0
   pullPolicy: Always
   secret: secret
+  routers:
+    - bottom
+    - clients
+    - main
+    - others
+    - psys
 
 imagePullSecrets:
   - name: imagePullSecret
