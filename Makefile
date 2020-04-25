@@ -21,7 +21,7 @@ update:
 
 index:
 	helm repo index .. --url $(URL)
-	mv ../index.yaml ./index.yaml -f
+	mv -f ../index.yaml ./index.yaml
 
 pack:
 	@echo Packaging $(CHART)
@@ -29,7 +29,7 @@ pack:
 	make index
 
 pack-all:
-	helm package sfpg node
+	helm package sfpg node redi
 	make index
 
 list:
