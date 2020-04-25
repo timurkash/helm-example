@@ -26,6 +26,10 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.version }}"
+          envFrom:
+            - prefix: _
+              configMapRef:
+                name: {{ .Values.image.hostsСonfigmap }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
