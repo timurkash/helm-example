@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "redi.fullname" . }}
+  name: {{ include "redi.releaseNameVersion" . }}
   labels:
     {{- include "redi.labels" . | nindent 4 }}
 spec:
@@ -25,22 +25,44 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.version }}"
+          envFrom:
+            - prefix: _
+              configMapRef:
+                name: {{ .Values.image.hostsСonfigmap }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /healthz
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: 1
+            timeoutSeconds: 5
           readinessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /readyz
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: 10
+            timeoutSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: POSTGRES_ARGS
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.image.secret }}
+                  key: POSTGRES_ARGS
+        - name: redis
+          image: redis #k8s.gcr.io/redis:e2e  # or just image: redis
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          ports:
+            - containerPort: 6379
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

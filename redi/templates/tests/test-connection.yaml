@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{ include "redi.fullname" . }}-test-connection"
+  name: "{{ .Release.Name }}-test-connection"
   labels:
-    {{- include "redi.labels" . | nindent 4 }}
+  {{- include "redi.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": test-success
 spec:
@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "redi.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ .Release.Name }}:{{ .Values.service.port }}']
   restartPolicy: Never
