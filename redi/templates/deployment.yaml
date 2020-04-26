@@ -49,12 +49,12 @@ spec:
             timeoutSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          env:
-            - name: POSTGRES_ARGS
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.image.secret }}
-                  key: POSTGRES_ARGS
+#          env:
+#            - name: POSTGRES_ARGS
+#              valueFrom:
+#                secretKeyRef:
+#                  name: {{ .Values.image.secret }}
+#                  key: POSTGRES_ARGS
         - name: redis
           image: redis #k8s.gcr.io/redis:e2e  # or just image: redis
           resources:
