@@ -3,9 +3,9 @@ entries:
   node:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-04-26T16:41:24.6041942+03:00"
+    created: "2020-05-18T12:22:20.9652631+03:00"
     description: A Helm chart for web-application on Node (SSR)
-    digest: eeab85d32bd07a446e4db389142ddb1534b613676e828d9feb432c0755a4233f
+    digest: ff07682179a11a4954cfd2d0783a044bfbb5dbc8741c6c33a3e1d35a15247adc
     name: node
     type: application
     urls:
@@ -14,9 +14,9 @@ entries:
   redi:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-04-26T16:41:24.6041942+03:00"
+    created: "2020-05-18T12:22:20.9662413+03:00"
     description: A Helm chart statesFull with Redis
-    digest: c830768c2d288eed00bce460c8232436f2b809d605a6a2c50d6354f9f1d61a3c
+    digest: 04d3e539b9307dc4d31bee887cddfdcfaa5c8992540d20989a2f2ef2a7c4e55f
     name: redi
     type: application
     urls:
@@ -25,12 +25,12 @@ entries:
   sfpg:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-04-26T16:41:24.605194+03:00"
+    created: "2020-05-18T12:22:20.9662413+03:00"
     description: A Helm chart statesFull with Postgres
-    digest: 43fa5fe0496767f3b019ab9a646a351b10f2232dbff1a2bc0d35ee354b6561fb
+    digest: 0a7bd0e3bd425abe599fd4d220844b6f185bd5ae1e089bb06b936458c0b7a303
     name: sfpg
     type: application
     urls:
     - https://timurkash.github.io/helm-example/sfpg-0.1.0.tgz
     version: 0.1.0
-generated: "2020-04-26T16:41:24.6031931+03:00"
+generated: "2020-05-18T12:22:20.9592198+03:00"

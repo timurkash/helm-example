@@ -72,3 +72,11 @@ Create the name of the service account to use
 {{- define "node.gateway" -}}
 {{- printf "%s-gateway" .Release.Name -}}
 {{- end -}}
+
+{{- define "node.image" -}}
+{{- if .Values.image.isPublic -}}
+{{ default "default" .Values.image.public }}
+{{- else -}}
+{{ default "default" .Values.image.repository }}
+{{- end -}}
+{{- end -}}

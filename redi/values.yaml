@@ -13,6 +13,8 @@ image:
   pullPolicy: Always
   secret: secret
   hostsСonfigmap: hosts-configmap
+  public: timurkash/busybox
+  isPublic: true
 
 imagePullSecrets:
   - name: imagePullSecret

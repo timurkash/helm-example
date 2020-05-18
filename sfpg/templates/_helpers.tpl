@@ -72,3 +72,11 @@ Create the name of the service account to use
 {{- define "sfpg.gateway" -}}
 {{- printf "%s-gateway" .Release.Name -}}
 {{- end -}}
+
+{{- define "sfpg.image" -}}
+{{- if .Values.image.isPublic -}}
+{{ default "default" .Values.image.public }}
+{{- else -}}
+{{ default "default" .Values.image.repository }}
+{{- end -}}
+{{- end -}}

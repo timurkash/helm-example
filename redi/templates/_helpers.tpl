@@ -72,3 +72,11 @@ Create the name of the service account to use
 {{- define "redi.gateway" -}}
 {{- printf "%s-gateway" .Release.Name -}}
 {{- end -}}
+
+{{- define "redi.image" -}}
+{{- if .Values.image.isPublic -}}
+{{ default "default" .Values.image.public }}
+{{- else -}}
+{{ default "default" .Values.image.repository }}
+{{- end -}}
+{{- end -}}
