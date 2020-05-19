@@ -14,7 +14,7 @@ image:
   secret: secret
   hostsСonfigmap: hosts-configmap
   public: timurkash/busybox
-  isPublic: true
+  isPublic: false
 
 imagePullSecrets:
   - name: imagePullSecret

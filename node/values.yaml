@@ -19,7 +19,7 @@ image:
     - others
     - psys
   public: timurkash/busybox
-  isPublic: true
+  isPublic: false
 
 imagePullSecrets:
   - name: imagePullSecret
