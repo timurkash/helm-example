@@ -75,7 +75,7 @@ Create the name of the service account to use
 
 {{- define "node.image" -}}
 {{- if .Values.image.isPublic -}}
-{{ default "default" .Values.image.public }}
+{{- printf "docker.io/%s" .Values.image.public -}}
 {{- else -}}
 {{ default "default" .Values.image.repository }}
 {{- end -}}
