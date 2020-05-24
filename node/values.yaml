@@ -18,7 +18,7 @@ image:
     - main
     - others
     - psys
-  public: timurkash/busybox
+  public: docker.io/timurkash/busybox
   isPublic: false
 
 imagePullSecrets:

@@ -13,7 +13,7 @@ image:
   pullPolicy: Always
   secret: secret
   hostsСonfigmap: hosts-configmap
-  public: timurkash/busybox
+  public: docker.io/timurkash/busybox
   isPublic: false
 
 imagePullSecrets:
