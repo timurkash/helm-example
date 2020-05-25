@@ -77,6 +77,6 @@ Create the name of the service account to use
 {{- if .Values.image.isPublic -}}
 {{ default "default" .Values.image.public }}
 {{- else -}}
-{{ default "default" .Values.image.repository }}
+{{- printf "%s/%s" .Values.image.registry .Values.image.repository -}}
 {{- end -}}
 {{- end -}}

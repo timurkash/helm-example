@@ -3,7 +3,7 @@ BRANCH:=gh-pages
 URL:=https://timurkash.github.io/
 ROUTER:=helm-example
 NAME:=find-psy
-CHART:=node
+CHART:=sfpg
 
 pull:
 	git pull origin $(BRANCH)
@@ -31,6 +31,7 @@ pack:
 pack-all:
 	helm package sfpg node redi
 	make index
+	git add .
 
 list:
 	helm search repo --regexp $(NAME)/*
