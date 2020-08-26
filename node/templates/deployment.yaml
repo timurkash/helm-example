@@ -28,9 +28,12 @@ spec:
           image: {{ include "node.image" . }}:{{ .Values.image.version }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: http
-              containerPort: {{ .Values.service.port }}
-              protocol: TCP
+          - name: http
+            containerPort: {{ .Values.service.port }}
+            protocol: TCP
+          envFrom:
+          - configMapRef:
+            name: {{ .Values.image.firebase }}
           livenessProbe:
             httpGet:
               path: /
