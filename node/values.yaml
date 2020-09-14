@@ -14,12 +14,13 @@ image:
   pullPolicy: Always
   secret: secret
   firebase: firebase
-  routers:
-    - bottom
-    - clients
-    - main
-    - others
-    - psys
+  bashpath: /admins/
+#  routers:
+#    - bottom
+#    - clients
+#    - main
+#    - others
+#    - psys
   public: docker.io/timurkash/busybox
   isPublic: false
 
