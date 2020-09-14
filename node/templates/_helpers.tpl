@@ -73,6 +73,10 @@ Create the name of the service account to use
 {{- printf "%s-gateway" .Release.Name -}}
 {{- end -}}
 
+{{- define "node.vs" -}}
+{{- printf "%s-virtual-service" .Release.Name -}}
+{{- end -}}
+
 {{- define "node.image" -}}
 {{- if .Values.image.isPublic -}}
 {{ default "default" .Values.image.public }}
