@@ -14,7 +14,7 @@ image:
   pullPolicy: Always
   secret: secret
   firebase: firebase
-  bashpath: /admins/
+  basepath: /admins/
 #  routers:
 #    - bottom
 #    - clients
