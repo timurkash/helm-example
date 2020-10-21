@@ -15,7 +15,7 @@ next:
 
 push:
 	git push -u origin $(BRANCH)
-	echo "U can click $(URL)$(ROUTER)/index.yaml"
+	echo "You can open $(URL)$(ROUTER)/index.yaml in some time"
 
 update:
 	helm repo update
