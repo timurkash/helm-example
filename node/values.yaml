@@ -12,8 +12,11 @@ image:
   version: 0.1.0
   tag: 0.1.0
   pullPolicy: Always
-  secret: secret
-  firebase: firebase
+  configmaps:
+    - firebase
+    - configmap2
+  secrets:
+    - secret
   basepath: /admins/
 #  routers:
 #    - bottom

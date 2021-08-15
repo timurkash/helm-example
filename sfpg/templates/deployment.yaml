@@ -27,9 +27,17 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: {{ include "sfpg.image" . }}:{{ .Values.image.version }}
           envFrom:
-            - prefix: _
-              configMapRef:
-                name: {{ .Values.image.hostsСonfigmap }}
+          {{- range .Values.image.configmaps }}
+            - configMapRef:
+                name: {{ . }}
+          {{- if eq . "hosts-configmap"}}
+              prefix: _
+          {{- end}}
+          {{- end}}
+            {{- range .Values.image.secrets }}
+            - secretRef:
+                name: {{ . }}
+          {{- end}}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
@@ -59,12 +67,6 @@ spec:
 #            timeoutSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          env:
-            - name: POSTGRES_ARGS
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.image.secret }}
-                  key: POSTGRES_ARGS
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

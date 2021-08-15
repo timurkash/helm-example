@@ -27,26 +27,44 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: {{ include "redi.image" . }}:{{ .Values.image.version }}
           envFrom:
-            - prefix: _
-              configMapRef:
-                name: {{ .Values.image.hostsСonfigmap }}
+            {{- range .Values.image.configmaps }}
+            - configMapRef:
+                name: {{ . }}
+              {{- if eq . "hosts-configmap"}}
+              prefix: _
+            {{- end}}
+            {{- end}}
+            {{- range .Values.image.secrets }}
+            - secretRef:
+                name: {{ . }}
+          {{- end}}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /healthz
+            tcpSocket:
               port: {{ .Values.service.port }}
-            initialDelaySeconds: 1
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            #          livenessProbe:
+            #            httpGet:
+            #              path: /healthz
+            #              port: {{ .Values.service.port }}
+            #            initialDelaySeconds: 1
             timeoutSeconds: 5
           readinessProbe:
-            httpGet:
-              path: /readyz
+            tcpSocket:
               port: {{ .Values.service.port }}
-            initialDelaySeconds: 10
-            timeoutSeconds: 10
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          #          readinessProbe:
+          #            httpGet:
+          #              path: /readyz
+          #              port: {{ .Values.service.port }}
+          #            initialDelaySeconds: 10
+          #            timeoutSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
 #          env:

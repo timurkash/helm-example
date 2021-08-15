@@ -12,8 +12,12 @@ image:
   version: 0.1.1
   tag: 0.1.1
   pullPolicy: Always
-  secret: secret
-  hostsСonfigmap: hosts-configmap
+  configmaps:
+    - configmap1
+    - configmap2
+    - hosts-configmap
+  secrets:
+    - secret
   public: docker.io/timurkash/busybox
   isPublic: false
 

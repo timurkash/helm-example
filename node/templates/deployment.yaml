@@ -32,8 +32,14 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           envFrom:
+            {{- range .Values.image.configmaps }}
             - configMapRef:
-                name: {{ .Values.image.firebase }}
+                name: {{ . }}
+            {{- end}}
+            {{- range .Values.image.secrets }}
+            - secretRef:
+                name: {{ . }}
+          {{- end}}
           livenessProbe:
             httpGet:
               path: /healthz
