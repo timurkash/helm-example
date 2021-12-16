@@ -5,14 +5,18 @@ metadata:
   labels:
   {{- include "sfpg.labels" . | nindent 4 }}
 spec:
-  #  type: {{ .Values.service.type }}
+{{/*  #  type: {{ .Values.service.type }}*/}}
   ports:
-    - port: {{ .Values.service.port }}
+    - port: {{ .Values.service.http.port }}
       targetPort: http
       protocol: TCP
       name: http
+    - port: {{ .Values.service.grpc.port }}
+      targetPort: grpc
+      protocol: TCP
+      name: grpc
       {{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePort))) }}
       nodePort: {{ .Values.service.nodePort }}
-  {{- end }}
+      {{- end }}
   selector:
   {{- include "sfpg.selectorLabels" . | nindent 4 }}

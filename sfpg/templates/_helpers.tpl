@@ -28,6 +28,10 @@ Expand the name of the chart.
 {{- printf "%s-%s" .Release.Name .Values.version -}}
 {{- end -}}
 
+{{- define "sfpg.releaseNameVersionConfig" -}}
+{{- printf "%s-%s-config" .Release.Name .Values.version -}}
+{{- end -}}
+
 {{/*
 Create chart name and version as used by the chart label.
 */}}

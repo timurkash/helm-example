@@ -25,7 +25,10 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: {{ include "sfpg.image" . }}:{{ .Values.image.version }}
+          image: {{ include "sfpg.image" . }}:{{ .Values.image.tag }}
+          volumeMounts:
+            - name: config-volume
+              mountPath: /data/conf
           envFrom:
           {{- range .Values.image.configmaps }}
             - configMapRef:
@@ -34,39 +37,53 @@ spec:
               prefix: _
           {{- end}}
           {{- end}}
-            {{- range .Values.image.secrets }}
+          {{- range .Values.image.secrets }}
             - secretRef:
                 name: {{ . }}
           {{- end}}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.port }}
+              containerPort: {{ .Values.service.http.port }}
               protocol: TCP
           livenessProbe:
             tcpSocket:
-              port: {{ .Values.service.port }}
+              port: {{ .Values.service.http.port }}
             initialDelaySeconds: 15
             periodSeconds: 20
 #          livenessProbe:
 #            httpGet:
 #              path: /healthz
-#              port: {{ .Values.service.port }}
+#              port: {{ .Values.service.http.port }}
 #            initialDelaySeconds: 1
             timeoutSeconds: 5
           readinessProbe:
             tcpSocket:
-              port: {{ .Values.service.port }}
+              port: {{ .Values.service.http.port }}
             initialDelaySeconds: 5
             periodSeconds: 10
 #          readinessProbe:
 #            httpGet:
 #              path: /readyz
-#              port: {{ .Values.service.port }}
+#              port: {{ .Values.service.http.port }}
 #            initialDelaySeconds: 10
 #            timeoutSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+        {{- if .Values.redis.create -}}
+        - name: redis
+          image: redis #k8s.gcr.io/redis:e2e  # or just image: redis
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          ports:
+            - containerPort: {{ .Values.redis.port }}
+        {{- end }}
+      volumes:
+        - name: config-volume
+          configMap:
+            name: {{ include "sfpg.releaseNameVersionConfig" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

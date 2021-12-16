@@ -3,7 +3,7 @@ BRANCH:=gh-pages
 URL:=https://timurkash.github.io/
 ROUTER:=helm-example
 NAME:=find-psy
-CHART:=node
+CHART:=sfpg
 
 pull:
 	git pull origin $(BRANCH)
@@ -26,8 +26,8 @@ index:
 
 pack:
 	@echo Packaging $(CHART)
-	helm package $(CHART)
-	make index
+	@helm package $(CHART)
+	@make index
 
 pack-all:
 	helm package sfpg node redi
@@ -48,7 +48,7 @@ ls:
 	helm ls -A
 
 temp:
-	helm template name-chart $(CHART) > temp.yaml
+	helm template back-name $(CHART) > temp.yaml
 
 start:
 	start "$(URL)$(ROUTER)/index.yaml"

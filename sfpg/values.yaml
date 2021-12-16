@@ -9,8 +9,7 @@ replicaCount: 1
 image:
   registry: docker.io
   repository: nginx
-  version: 0.1.1
-  tag: 0.1.1
+  tag: v0.0.1
   pullPolicy: Always
   configmaps:
     - configmap1
@@ -21,6 +20,10 @@ image:
   public: docker.io/timurkash/busybox
   isPublic: false
 
+redis:
+  create: false
+  port:
+
 imagePullSecrets:
   - name: imagePullSecret
 nameOverride: ""
@@ -28,8 +31,13 @@ fullnameOverride: ""
 
 service:
   type: ClusterIP
-  port: 3000
-  extPort: 8081
+  nodePort:
+  http:
+    port: 8000
+    extPort: 8040
+  grpc:
+    port: 9000
+    extPort: 9040
 
 gateway:
   enabled: false
