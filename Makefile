@@ -52,3 +52,6 @@ temp:
 
 start:
 	start "$(URL)$(ROUTER)/index.yaml"
+
+url:
+	@echo "$(URL)$(ROUTER)/index.yaml"
