@@ -30,7 +30,7 @@ pack:
 	@make index
 
 pack-all:
-	helm package sfpg node redi
+	helm package sfpg node
 	make index
 	git add .
 

@@ -22,7 +22,7 @@ image:
 
 redis:
   create: false
-  port:
+  port: 6379
 
 imagePullSecrets:
   - name: imagePullSecret
