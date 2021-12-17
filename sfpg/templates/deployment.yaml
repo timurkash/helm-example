@@ -29,18 +29,18 @@ spec:
           volumeMounts:
             - name: config-volume
               mountPath: /data/conf
-          envFrom:
-          {{- range .Values.image.configmaps }}
-            - configMapRef:
-                name: {{ . }}
-          {{- if eq . "hosts-configmap"}}
-              prefix: _
-          {{- end}}
-          {{- end}}
-          {{- range .Values.image.secrets }}
-            - secretRef:
-                name: {{ . }}
-          {{- end}}
+#          envFrom:
+#          {{- range .Values.image.configmaps }}
+#            - configMapRef:
+#                name: {{ . }}
+#          {{- if eq . "hosts-configmap"}}
+#              prefix: _
+#          {{- end}}
+#          {{- end}}
+#          {{- range .Values.image.secrets }}
+#            - secretRef:
+#                name: {{ . }}
+#          {{- end}}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
