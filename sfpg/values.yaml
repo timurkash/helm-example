@@ -37,6 +37,7 @@ service:
     extPort: 8040
   grpc:
     port: 9000
+    portString: "9000"
     extPort: 9040
 
 gateway:

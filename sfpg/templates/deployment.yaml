@@ -29,6 +29,7 @@ spec:
           volumeMounts:
             - name: config-volume
               mountPath: /data/conf
+              readOnly: true
 #          envFrom:
 #          {{- range .Values.image.configmaps }}
 #            - configMapRef:
@@ -47,8 +48,10 @@ spec:
               containerPort: {{ .Values.service.http.port }}
               protocol: TCP
           livenessProbe:
-            tcpSocket:
-              port: {{ .Values.service.http.port }}
+            exec:
+              command:
+                - grpc_health_probe
+                - {{ include "sfpg.grpc_health_probe_addr" . }}
             initialDelaySeconds: 15
             periodSeconds: 20
 #          livenessProbe:
@@ -58,8 +61,10 @@ spec:
 #            initialDelaySeconds: 1
             timeoutSeconds: 5
           readinessProbe:
-            tcpSocket:
-              port: {{ .Values.service.http.port }}
+            exec:
+              command:
+                - grpc_health_probe
+                - {{ include "sfpg.grpc_health_probe_addr" . }}
             initialDelaySeconds: 5
             periodSeconds: 10
 #          readinessProbe:

@@ -77,6 +77,10 @@ Create the name of the service account to use
 {{- printf "%s-gateway" .Release.Name -}}
 {{- end -}}
 
+{{- define "sfpg.grpc_health_probe_addr" -}}
+{{- printf "-addr=:%s" .Values.service.grpc.portString -}}
+{{- end -}}
+
 {{- define "sfpg.image" -}}
 {{- if .Values.image.isPublic -}}
 {{ default "default" .Values.image.public }}
