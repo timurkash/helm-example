@@ -30,18 +30,6 @@ spec:
             - name: config-volume
               mountPath: /data/conf
               readOnly: true
-#          envFrom:
-#          {{- range .Values.image.configmaps }}
-#            - configMapRef:
-#                name: {{ . }}
-#          {{- if eq . "hosts-configmap"}}
-#              prefix: _
-#          {{- end}}
-#          {{- end}}
-#          {{- range .Values.image.secrets }}
-#            - secretRef:
-#                name: {{ . }}
-#          {{- end}}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
@@ -57,11 +45,6 @@ spec:
                 - {{ include "sfpg.grpc_health_probe_addr" . }}
             initialDelaySeconds: 15
             periodSeconds: 20
-#          livenessProbe:
-#            httpGet:
-#              path: /healthz
-#              port: {{ .Values.service.http.port }}
-#            initialDelaySeconds: 1
             timeoutSeconds: 5
           readinessProbe:
             exec:
@@ -70,12 +53,6 @@ spec:
                 - {{ include "sfpg.grpc_health_probe_addr" . }}
             initialDelaySeconds: 5
             periodSeconds: 10
-#          readinessProbe:
-#            httpGet:
-#              path: /readyz
-#              port: {{ .Values.service.http.port }}
-#            initialDelaySeconds: 10
-#            timeoutSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
         {{- if .Values.redis.create -}}
