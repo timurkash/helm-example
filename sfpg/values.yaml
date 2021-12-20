@@ -20,15 +20,6 @@ image:
   public: docker.io/timurkash/busybox
   isPublic: false
 
-redis:
-  create: false
-  port: 6379
-
-imagePullSecrets:
-  - name: imagePullSecret
-nameOverride: ""
-fullnameOverride: ""
-
 service:
   type: ClusterIP
   nodePort:
@@ -40,6 +31,15 @@ service:
     port: 9000
     portString: ":9000"
     extPort: 9040
+
+imagePullSecrets:
+  - name: imagePullSecret
+nameOverride: ""
+fullnameOverride: ""
+
+redis:
+  create: false
+  port: 6379
 
 gateway:
   enabled: false

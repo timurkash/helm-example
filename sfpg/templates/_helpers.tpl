@@ -78,7 +78,7 @@ Create the name of the service account to use
 {{- end -}}
 
 {{- define "sfpg.grpc_health_probe_addr" -}}
-{{- printf "-addr=:%s" .Values.service.grpc.portString -}}
+{{- printf "-addr=%s" .Values.service.grpc.portString -}}
 {{- end -}}
 
 {{- define "sfpg.image" -}}
