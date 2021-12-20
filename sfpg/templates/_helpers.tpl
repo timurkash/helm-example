@@ -24,9 +24,9 @@ Expand the name of the chart.
 {{/*{{- end -}}*/}}
 {{/*{{- end -}}*/}}
 
-{{- define "sfpg.nameVersion" -}}
-{{- printf "%s-%s" .Values.name .Values.version -}}
-{{- end -}}
+{{/*{{- define "sfpg.nameVersion" -}}*/}}
+{{/*{{- printf "%s-%s" .Values.name .Values.version -}}*/}}
+{{/*{{- end -}}*/}}
 
 {{- define "sfpg.releaseNameConfig" -}}
 {{- printf "%s-config" .Release.Name -}}
@@ -57,6 +57,8 @@ Selector labels
 {{- define "sfpg.selectorLabels" -}}
 app: {{ .Release.Name }}
 version: {{ .Values.version }}
+appType: back
+appName: {{ .Values.name }}
 app.kubernetes.io/name: {{ .Release.Name }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
