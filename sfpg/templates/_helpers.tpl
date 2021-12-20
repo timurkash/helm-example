@@ -24,12 +24,12 @@ Expand the name of the chart.
 {{/*{{- end -}}*/}}
 {{/*{{- end -}}*/}}
 
-{{- define "sfpg.releaseNameVersion" -}}
-{{- printf "%s-%s" .Release.Name .Values.version -}}
+{{- define "sfpg.nameVersion" -}}
+{{- printf "%s-%s" .Values.name .Values.version -}}
 {{- end -}}
 
-{{- define "sfpg.releaseNameVersionConfig" -}}
-{{- printf "%s-%s-config" .Release.Name .Values.version -}}
+{{- define "sfpg.releaseNameConfig" -}}
+{{- printf "%s-config" .Release.Name -}}
 {{- end -}}
 
 {{/*

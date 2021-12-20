@@ -34,10 +34,11 @@ service:
   nodePort:
   http:
     port: 8000
+    portString: ":8000"
     extPort: 8040
   grpc:
     port: 9000
-    portString: "9000"
+    portString: ":9000"
     extPort: 9040
 
 gateway:
