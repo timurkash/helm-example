@@ -5,6 +5,7 @@ metadata:
   labels:
     {{- include "sfpg.labels" . | nindent 4 }}
   annotations:
+    {{- include "sfpg.annotations" . | nindent 4 }}
     sidecar.istio.io/rewriteAppHTTPProbers: "true"
 spec:
   replicas: {{ .Values.replicaCount }}
@@ -30,7 +31,7 @@ spec:
           image: {{ include "sfpg.image" . }}:{{ .Values.image.tag }}
           volumeMounts:
             - name: config-volume
-              mountPath: /data/conf
+              mountPath: {{ .Values.image.configVolume }}
               readOnly: true
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
@@ -38,6 +39,17 @@ spec:
               containerPort: {{ .Values.service.http.port }}
             - name: grpc
               containerPort: {{ .Values.service.grpc.port }}
+          {{- if or .Values.image.configmaps .Values.image.secrets }}
+          envFrom:
+          {{- range .Values.image.configmaps }}
+            - configMapRef:
+                name: {{ . }}
+          {{- end }}
+          {{- range .Values.image.secrets }}
+            - secretRef:
+                name: {{ . }}
+          {{- end }}
+          {{- end }}
           livenessProbe:
             exec:
               command:

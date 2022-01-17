@@ -21,8 +21,8 @@ update:
 	helm repo update
 
 index:
-	helm repo index .. --url $(URL)
-	mv -f ../index.yaml ./index.yaml
+	@helm repo index .. --url $(URL)
+	@mv -f ../index.yaml ./index.yaml
 
 pack:
 	@echo Packaging $(CHART)
@@ -48,7 +48,7 @@ ls:
 	helm ls -A
 
 temp:
-	helm template back-name-v1 $(CHART) > temp.yaml
+	helm template --debug back-name-v1 $(CHART) > temp.yaml
 
 start:
 	start "$(URL)$(ROUTER)/index.yaml"

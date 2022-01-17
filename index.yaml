@@ -3,7 +3,7 @@ entries:
   node:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-20T12:09:27.599074735+03:00"
+    created: "2022-01-17T05:55:59.319475023+03:00"
     description: A Helm chart for web-application on Node (SSR)
     digest: 77a9f3242a117f8f234bc00627a6bc15b51e3a9e738d978cee7d42a3ca4f6f10
     name: node
@@ -14,12 +14,12 @@ entries:
   sfpg:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-20T12:09:27.599609749+03:00"
+    created: "2022-01-17T05:55:59.320366944+03:00"
     description: A Helm chart statesFull with Postgres
-    digest: c8fccc23cd801f1ed6830dbbea64a608590f00f1d859984f4049050f7d4441ae
+    digest: a29249bf16bf5a4f1468aa2adcb441d9f4b71cc28fd6f40e47bfdcd7dcfd24f2
     name: sfpg
     type: application
     urls:
     - https://timurkash.github.io/helm-example/sfpg-0.1.0.tgz
     version: 0.1.0
-generated: "2021-12-20T12:09:27.598429356+03:00"
+generated: "2022-01-17T05:55:59.318613288+03:00"

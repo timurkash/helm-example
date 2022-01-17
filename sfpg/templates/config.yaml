@@ -3,7 +3,9 @@ kind: ConfigMap
 metadata:
   name: {{ include "sfpg.releaseNameConfig" . }}
   labels:
-    {{- include "sfpg.selectorLabels" . | nindent 4 }}
+    {{- include "sfpg.labels" . | nindent 4 }}
+  annotations:
+    {{- include "sfpg.annotations" . | nindent 4 }}
 data:
   config.yaml: |
     server:

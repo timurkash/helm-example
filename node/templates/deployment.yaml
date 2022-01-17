@@ -31,15 +31,17 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          {{- if or .Values.image.configmaps .Values.image.secrets }}
           envFrom:
-            {{- range .Values.image.configmaps }}
+          {{- range .Values.image.configmaps }}
             - configMapRef:
                 name: {{ . }}
-            {{- end}}
-            {{- range .Values.image.secrets }}
+          {{- end }}
+          {{- range .Values.image.secrets }}
             - secretRef:
                 name: {{ . }}
-          {{- end}}
+          {{- end }}
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /healthz

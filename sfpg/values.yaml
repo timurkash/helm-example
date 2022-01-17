@@ -19,6 +19,7 @@ image:
     - secret
   public: docker.io/timurkash/busybox
   isPublic: false
+  configVolume: /data/conf
 
 service:
   type: ClusterIP

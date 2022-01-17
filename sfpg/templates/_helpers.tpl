@@ -64,6 +64,14 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
 
 {{/*
+Common annotations
+*/}}
+{{- define "sfpg.annotations" -}}
+meta.helm.sh/release-name: {{ .Release.Name }}
+meta.helm.sh/release-namespace: {{ .Release.Namespace }}
+{{- end -}}
+
+{{/*
 Create the name of the service account to use
 */}}
 {{- define "sfpg.serviceAccountName" -}}

@@ -2,6 +2,10 @@ apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
   name: {{ .Release.Name }}
+  labels:
+    {{- include "sfpg.labels" . | nindent 4 }}
+  annotations:
+    {{- include "sfpg.annotations" . | nindent 4 }}
 spec:
   host: {{ .Release.Name }}
   subsets:
